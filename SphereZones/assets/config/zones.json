@@ -1,0 +1,23 @@
+{
+  "global": {
+    "permissions": {}
+  },
+  "zones": [
+    {
+      "name": "Example Zone",
+      "points": [
+        { "x": 0, "y": 0 },
+        { "x": 1000, "y": 0 },
+        { "x": 1000, "y": 1000 },
+        { "x": 0, "y": 1000 }
+      ],
+      "addStatus": [5, 19],
+      "permissions": {
+        "Player": {
+          "world": ["Build", "Dismantle"],
+          "damage": ["WildPal", "NPC"]
+        }
+      }
+    }
+  ]
+}

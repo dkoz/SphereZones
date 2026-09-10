@@ -1,0 +1,35 @@
+# Build output
+build/
+dist/
+Binaries/
+Intermediates/
+.xmake/
+*.dll
+*.pdb
+*.exp
+*.ilk
+*.lib
+*.obj
+*.zip
+
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Map tiles (large binary, regenerate from the game)
+ZonesTool/tiles/mainworld/
+ZonesTool/tiles/tree/
+
+# Live server config, not the shipped defaults
+ZonesTool/zones.json
+ZonesTool/dist/zones.json
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sphere Zones</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-draw@1.0.4/dist/leaflet.draw.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="map"></div>
+
+    <div id="map-switcher">
+        <button class="map-switch-btn active" data-map="mainworld">Palpagos Islands</button>
+        <button class="map-switch-btn" data-map="tree">World Tree</button>
+        <span class="switcher-divider"></span>
+        <div id="draw-tools"></div>
+    </div>
+
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-title">Zones</span>
+            <button id="btn-export" class="sidebar-btn" title="Export"><i class="fas fa-download"></i></button>
+            <button id="btn-import" class="sidebar-btn" title="Import"><i class="fas fa-upload"></i></button>
+            <button id="btn-global" class="sidebar-btn" title="Global Permissions"><i class="fas fa-globe"></i></button>
+        </div>
+        <div id="zone-list"></div>
+    </div>
+
+    <div id="cursor-coords">
+        <span class="coord-item">X: <span id="coord-x">0</span></span>
+        <span class="coord-item">Y: <span id="coord-y">0</span></span>
+    </div>
+
+    <div id="permission-panel" class="hidden">
+        <div class="panel-header">
+            <span id="panel-title">Permissions</span>
+            <button id="panel-close" class="panel-close-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-body">
+            <div id="zone-name-row" class="zone-name-row hidden">
+                <input type="text" id="zone-name-input" class="form-control" placeholder="Zone name">
+            </div>
+            <ul class="nav nav-tabs nav-fill">
+                <li class="nav-item"><button class="nav-link active" data-tab="Players">Players</button></li>
+                <li class="nav-item"><button class="nav-link" data-tab="WildPals">Wild Pals</button></li>
+                <li class="nav-item"><button class="nav-link" data-tab="Npcs">NPCs</button></li>
+                <li class="nav-item"><button class="nav-link" data-tab="PlayersPals">Player Pals</button></li>
+                <li class="nav-item"><button class="nav-link" data-tab="BasePals">Base Pals</button></li>
+                <li class="nav-item"><button class="nav-link" data-tab="StatusEffects">Status Effects</button></li>
+                <li class="nav-item"><button class="nav-link" data-tab="Access">Access</button></li>
+            </ul>
+            <div class="tab-content" id="perm-tabs"></div>
+        </div>
+        <div class="panel-footer">
+            <button id="btn-delete-zone" class="btn btn-danger btn-sm hidden"><i class="fas fa-trash"></i> Delete Zone</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='maptool.js') }}"></script>
+</body>
+</html>
